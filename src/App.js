@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import './App.css';
 import Header from './components/header/Header';
-import Home from './components/home';
-
+import RainHeart from './components/rainheart/RainHeart';
+// import Home from './components/home';
+import Loading from './components/Loading/Loading';
+const Home = React.lazy(()=> import('./components/home'));
 function App(props) {
     useEffect(() => {
         const script = document.createElement("script");
@@ -11,10 +13,12 @@ function App(props) {
         document.body.appendChild(script);
     }, []);
     return (
-        <div>
+        <Suspense fallback={<Loading/>}>
+            <RainHeart/>
             <Header/>
             <Home/>
-        </div>
+        </Suspense>
+        
     );
 }
 

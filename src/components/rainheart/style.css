@@ -1,0 +1,24 @@
+.rain-heart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    z-index: 100;
+}
+
+
+.heart {
+    color: pink;
+    position: fixed;
+    font-size: 15px;
+    opacity: 0.8;
+    top: -2vh;
+    animation: fall  linear;
+    transform: translateY(0);
+}
+
+@keyframes fall{
+    to{
+        transform: translateY(105vh) rotate(360deg) ;
+    }
+}
