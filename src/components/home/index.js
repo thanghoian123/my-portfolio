@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 
 function Home(props) {
+    const {projects,pageNumbers,trimmedData,pagination} = props;
+
+    const ele = trimmedData.map((item, index) => {
+        return (
+            <div className="project-item" key={index}>
+                <div className="project-item-inner outer-shadow">
+                    <div className="project-img">
+                        <a href="#">View project</a>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/image-file-upload.appspot.com/o/IMG_20200223_093745.jpg?alt=media&token=cd0836c5-d183-47be-b0f9-2aa2f46131f5" alt="" />
+                    </div>
+                    <h3>{item.name}</h3>
+                    <p>{item.full_name} </p>
+                </div>
+            </div>
+        )
+    })
     return (
         <div>
             <section className="home-section section">
@@ -33,6 +49,11 @@ function Home(props) {
                         <div className="home-img">
                             <div className="img-box">
                                 <img className="outer-shadow" src="https://firebasestorage.googleapis.com/v0/b/image-file-upload.appspot.com/o/IMG_20200223_093745.jpg?alt=media&token=cd0836c5-d183-47be-b0f9-2aa2f46131f5" alt="" />
+                            </div>
+                            <div className="contact-box">
+                                <h1>Name: Pham Manh Thang</h1>
+                                <h1>Phone : +84 769144735</h1>
+                                <h1>Gmail: kuthang32@gmail.com</h1>
                             </div>
                         </div>
                     </div>
@@ -79,6 +100,30 @@ function Home(props) {
                             <span className="tag-item outer-shadow active" data-target=".skills">Skills</span>
                             <span className="tag-item outer-shadow " data-target=".experience">Experience</span>
                             <span className="tag-item outer-shadow " data-target=".education">Education</span>
+                            <span className="tag-item outer-shadow " data-target=".projects">Projects</span>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="projects tag-content">
+                            <div className="row">
+
+                                {ele}
+
+
+                                <div className="pagination">
+                                    {/* <div className="button active"></div>
+                                    <div className="button"></div>
+                                    <div className="button"></div>
+                                    <div className="button"></div> */}
+                                    {pageNumbers.map((item, index) => {
+                                        return (
+                                            <div className="button" key={index} onClick={()=>pagination(item)}>{item}</div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                     <div className="row">
@@ -237,6 +282,147 @@ function Home(props) {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* service section */}
+            <section className="service-section section">
+                <div className="container">
+                    <div className="row">
+                        <div className="section-title">
+                            <h2 data-heading="Services">What i do</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="service-item">
+                            <div className="service-item-inner outer-shadow">
+                                <div className="icon outer-shadow">
+                                    <i className="fa fa-mobile" aria-hidden="true"></i>
+                                </div>
+                                <h3>Responsive Design</h3>
+                                <p>It has survived not only five centuries,
+                                but also the leap into electronic typesetting</p>
+
+                            </div>
+                        </div>
+
+                        <div className="service-item">
+                            <div className="service-item-inner outer-shadow">
+                                <div className="icon outer-shadow ">
+                                    <i className="fa fa-desktop" aria-hidden="true"></i>
+                                </div>
+                                <h3>Web Design</h3>
+                                <p>It has survived not only five centuries,
+                                but also the leap into electronic typesetting</p>
+                            </div>
+                        </div>
+
+                        <div className="service-item">
+                            <div className="service-item-inner outer-shadow">
+                                <div className="icon outer-shadow ">
+                                    <i className="fa fa-mobile" aria-hidden="true"></i>
+                                </div>
+                                <h3>Graphic Design</h3>
+                                <p>It has survived not only five centuries,
+                                but also the leap into electronic typesetting</p>
+                            </div>
+                        </div>
+
+                        <div className="service-item">
+                            <div className="service-item-inner outer-shadow">
+                                <div className="icon outer-shadow ">
+                                    <i className="fa fa-mobile" aria-hidden="true"></i>
+                                </div>
+                                <h3>Clean Code</h3>
+                                <p>It has survived not only five centuries,
+                                but also the leap into electronic typesetting</p>
+                            </div>
+                        </div>
+
+                        <div className="service-item">
+                            <div className="service-item-inner outer-shadow">
+                                <div className="icon outer-shadow ">
+                                    <i className="fa fa-mobile" aria-hidden="true"></i>
+                                </div>
+                                <h3>SEO Marketing</h3>
+                                <p>It has survived not only five centuries,
+                                but also the leap into electronic typesetting</p>
+                            </div>
+                        </div>
+
+                        <div className="service-item">
+                            <div className="service-item-inner outer-shadow">
+                                <div className="icon outer-shadow ">
+                                    <i className="fa fa-mobile" aria-hidden="true"></i>
+                                </div>
+                                <h3>Great Support</h3>
+                                <p>It has survived not only five centuries,
+                                but also the leap into electronic typesetting</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="portfolio-section section">
+                <div className="container">
+                    <div className="row">
+                        <div className="section-title">
+                            <h2 data-heading="Portfolio">Latest Works</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="portfolio-item">
+                            <div className="portfolio-item-inner outer-shadow">
+                                <div className="portfolio-img">
+                                    <a href="#">View project</a>
+                                    <img src="https://firebasestorage.googleapis.com/v0/b/image-file-upload.appspot.com/o/IMG_20200223_093745.jpg?alt=media&token=cd0836c5-d183-47be-b0f9-2aa2f46131f5" alt="" />
+                                </div>
+                                <h3>Lorem, ipsum dolor sit amet</h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                            </div>
+
+                        </div>
+                        <div className="portfolio-item">
+                            <div className="portfolio-item-inner outer-shadow">
+                                <div className="portfolio-img">
+                                    <a href="#">View project</a>
+                                    <img src="https://firebasestorage.googleapis.com/v0/b/image-file-upload.appspot.com/o/IMG_20200223_093745.jpg?alt=media&token=cd0836c5-d183-47be-b0f9-2aa2f46131f5" alt="" />
+                                </div>
+                                <h3>Lorem, ipsum dolor sit amet</h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                            </div>
+
+                        </div>
+                        <div className="portfolio-item">
+                            <div className="portfolio-item-inner outer-shadow">
+                                <div className="portfolio-img">
+                                    <a href="#">View project</a>
+                                    <img src="https://firebasestorage.googleapis.com/v0/b/image-file-upload.appspot.com/o/IMG_20200223_093745.jpg?alt=media&token=cd0836c5-d183-47be-b0f9-2aa2f46131f5" alt="" />
+                                </div>
+                                <h3>Lorem, ipsum dolor sit amet</h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            </div>
+                        </div>
+                        <div className="portfolio-item">
+                            <div className="portfolio-item-inner outer-shadow">
+                                <div className="portfolio-img">
+                                    <a href="#">View project</a>
+                                    <img src="https://firebasestorage.googleapis.com/v0/b/image-file-upload.appspot.com/o/IMG_20200223_093745.jpg?alt=media&token=cd0836c5-d183-47be-b0f9-2aa2f46131f5" alt="" />
+                                </div>
+                                <h3>Lorem, ipsum dolor sit amet</h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            </div>
+                        </div>
+                        <div className="portfolio-popup">
+                            <div className="popup-content">
+                                <div className="close-tag outer-shadow">
+                                    &times;
                                 </div>
                             </div>
                         </div>

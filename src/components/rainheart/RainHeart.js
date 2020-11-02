@@ -13,6 +13,7 @@ function RainHeart(props) {
         const rainheart = document.querySelector('.rain-heart');
         const heart = document.createElement('div');
         heart.innerText="💸";
+        heart.innerText="♥";
         heart.classList.add('heart');
         heart.style.left = Math.random()*100 + 'vw';
         heart.style.animationDuration = Math.random()*2 + 2+"s";
@@ -26,7 +27,7 @@ function RainHeart(props) {
 
     let i = setInterval(createheart,300)
     
-    // setTimeout(() => { clearInterval(i);}, 4000);
+    setTimeout(() => { clearInterval(i);}, 4000);
     return (
         <div className="rain-heart">
            

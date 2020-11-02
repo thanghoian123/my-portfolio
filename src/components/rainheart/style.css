@@ -10,7 +10,7 @@
 .heart {
     color: pink;
     position: fixed;
-    font-size: 15px;
+    font-size: 20px;
     opacity: 0.8;
     top: -2vh;
     animation: fall  linear;
